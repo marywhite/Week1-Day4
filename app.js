@@ -46,8 +46,7 @@ function displayCreature(object){
 	var intelligence = row.insertCell(5);
 	var charisma = row.insertCell(6);
 	var playerClass = row.insertCell(7);
-	name.innerHTML = "<input id='attackLog' type='button' value='" + object.name + "'/>";
-	displayAttack(document.getElementById('attackLog').value);
+	name.innerHTML = makeButton(object);
     strength.innerHTML = object.strength;
 	dexterity.innerHTML = object.dexterity;
 	constitution.innerHTML = object.constitution;
@@ -58,13 +57,21 @@ function displayCreature(object){
 
 }
 
-function displayAttack(name){
+function makeButton(object) {
+	console.log(object.name);
+	return "<input type='button' id='attackLog' onclick ='displayAttack()' value='" + object.name + "'/>"
+}
+
+function currentAttack(name){
 	for(var i = 0; i < dungeonArray.length; i++){
 		if(dungeonArray[i].name == name){
-			console.log(dungeonArray[i].name);
-			console.log(dungeonArray[i].attack());
+			return dungeonArray[i].attack();
 		}
 	}
+}
+
+function displayAttack() {
+	console.log(document.getElementById('attackLog').getAttribute('value'));
 }
 
 function populateArray(){
@@ -78,6 +85,7 @@ function populateArray(){
 
 		dungeonArray.push(newCreature);
 		displayCreature(newCreature);
+		displayAttack(newCreature)
 }
 
 document.getElementById('addMonster').addEventListener('click', populateArray);
