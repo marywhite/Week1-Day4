@@ -8,10 +8,19 @@
 	this.charisma = charisma;
 }
 
+//(Math.floor(Math.random() * 20) + 1)
+
 Monster.prototype = {
 	attack : function(){
-		return this.strength * (Math.floor(Math.random() * 20) + 1);
+		return this.strength;
 	}
+}
+
+Player.prototype = new Monster;
+
+
+Player.prototype.attack = function(){
+	return this.dexterity;
 }
 
 function Player(name, strength, dexterity, constitution, wisdom, intelligence, charisma, playerClass){
@@ -19,18 +28,10 @@ function Player(name, strength, dexterity, constitution, wisdom, intelligence, c
 	Monster.apply(this, arguments);
 }
 
-Player.prototype.attack = function(){
-	return this.dexterity * (Math.floor(Math.random() * 20) +1);
-}
-
-Player.prototype = new Monster;
 
 var monsterMary = new Monster("Mary", 10, 5, 7, 4, 9, 4);
-console.log(monsterMary.attack());
 var playerCody = new Player("Cody", 15, 4, 9, 6, 3, 8, "goblin");
-console.log(playerCody.attack(), playerCody.strength);
-console.log(monsterMary);
-console.log(playerCody);
+
 
 var dungeonArray = [];
 
@@ -45,8 +46,9 @@ function displayCreature(object){
 	var intelligence = row.insertCell(5);
 	var charisma = row.insertCell(6);
 	var playerClass = row.insertCell(7);
-	name.innerHTML = "<input type='button' value='" + object.name + "' style='width:100%'/><br/><br/>";
-	strength.innerHTML = object.strength;
+	name.innerHTML = "<input id='attackLog' type='button' value='" + object.name + "'/>";
+	displayAttack(document.getElementById('attackLog').value);
+    strength.innerHTML = object.strength;
 	dexterity.innerHTML = object.dexterity;
 	constitution.innerHTML = object.constitution;
 	wisdom.innerHTML = object.wisdom;
@@ -54,6 +56,15 @@ function displayCreature(object){
 	charisma.innerHTML = object.charisma;
 	playerClass.innerHTML = object.playerClass;
 
+}
+
+function displayAttack(name){
+	for(var i = 0; i < dungeonArray.length; i++){
+		if(dungeonArray[i].name == name){
+			console.log(dungeonArray[i].name);
+			console.log(dungeonArray[i].attack());
+		}
+	}
 }
 
 function populateArray(){
@@ -70,3 +81,5 @@ function populateArray(){
 }
 
 document.getElementById('addMonster').addEventListener('click', populateArray);
+
+//document.getElementById('attackLog').addEventListener('click', console.log("hi"));
