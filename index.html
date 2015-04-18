@@ -11,23 +11,33 @@
 	</head>
 
 	<body>
-		<label for="name">Name:</label>
-		<textarea id="name"></textarea>
-		<label for="strength">Strength:</label>
-		<textarea id="strength"></textarea>
-		<label for ="dexterity">Dexterity:</label>
-		<textarea id="dexterity"></textarea>
-		<label for="constitution">Constitution:</label>
-		<textarea id="constitution"></textarea>
-		<label for="wisdom">Wisdom:</label>
-		<textarea id="wisdom"></textarea>
-		<label for="intelligence">Intelligence:</label>
-		<textarea id="intelligence"></textarea>
-		<label for="charisma">Charisma:</label>
-		<textarea id="charisma"></textarea>
-		<label for="player class">Player Class (Optional)</label>
-		<textarea id="class"></textarea>
-		<button type="button" id="addMonster">Add Player/Monster to Records</button>
+		<form id="input form">
+			<label for="name">Name:</label>
+			<input type ="text" id="name">
+			<br>
+			<label for="strength">Strength:</label>
+			<input type="text" id="strength">
+			<br>
+			<label for ="dexterity">Dexterity:</label>
+			<input type="text" id="dexterity">
+			<br>
+			<label for="constitution">Constitution:</label>
+			<input type="text" id="constitution">
+			<br>
+			<label for="wisdom">Wisdom:</label>
+			<input type="text" id="wisdom">
+			<br>
+			<label for="intelligence">Intelligence:</label>
+			<input type="text" id="intelligence">
+			<br>
+			<label for="charisma">Charisma:</label>
+			<input type="text" id="charisma">
+			<br>
+			<label for="playerClass">Player Class (Optional)</label>
+			<input type="text" id="playerClass">
+			<br>
+			<button type="button" id="addMonster">Add Player/Monster to Records</button>
+		</form>
 		<table border ="1" style="width:100%">
 			<tr>
 				<th>Name</th>
@@ -38,6 +48,6 @@
 				<th>Intelligence</th>
 				<th>Charisma</th>
 				<th>Player Class (Optional)</th>
-		<script src="script.js"></script>
+		<script src="app.js"></script>
 	</body>
 </html>
