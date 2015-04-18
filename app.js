@@ -6,19 +6,29 @@
 	this.wisdom = wisdom;
 	this.intelligence = intelligence;
 	this.charisma = charisma;
-};
+}
+
+Monster.prototype = {
+	attack : function(){
+		return this.strength * (Math.floor(Math.random() * 20) + 1);
+	}
+}
 
 function Player(name, strength, dexterity, constitution, wisdom, intelligence, charisma, playerClass){
 	this.playerClass = playerClass;
 	Monster.apply(this, arguments);
 }
 
+Player.prototype.attack = function(){
+	return this.dexterity * (Math.floor(Math.random() * 20) +1);
+}
+
 Player.prototype = new Monster;
 
 var monsterMary = new Monster("Mary", 10, 5, 7, 4, 9, 4);
-
+console.log(monsterMary.attack());
 var playerCody = new Player("Cody", 15, 4, 9, 6, 3, 8, "goblin");
-
+console.log(playerCody.attack(), playerCody.strength);
 console.log(monsterMary);
 console.log(playerCody);
 
@@ -35,7 +45,7 @@ function displayCreature(object){
 	var intelligence = row.insertCell(5);
 	var charisma = row.insertCell(6);
 	var playerClass = row.insertCell(7);
-	name.innerHTML = object.name;
+	name.innerHTML = "<input type='button' value='" + object.name + "' style='width:100%'/><br/><br/>";
 	strength.innerHTML = object.strength;
 	dexterity.innerHTML = object.dexterity;
 	constitution.innerHTML = object.constitution;
