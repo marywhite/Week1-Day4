@@ -12,7 +12,7 @@
 
 Monster.prototype = {
 	attack : function(){
-		return this.strength;
+		return 'strong';
 	}
 }
 
@@ -20,18 +20,13 @@ Player.prototype = new Monster;
 
 
 Player.prototype.attack = function(){
-	return this.dexterity;
+	return 'dexterous';
 }
 
 function Player(name, strength, dexterity, constitution, wisdom, intelligence, charisma, playerClass){
 	this.playerClass = playerClass;
 	Monster.apply(this, arguments);
 }
-
-
-var monsterMary = new Monster("Mary", 10, 5, 7, 4, 9, 4);
-var playerCody = new Player("Cody", 15, 4, 9, 6, 3, 8, "goblin");
-
 
 var dungeonArray = [];
 
@@ -46,20 +41,28 @@ function displayCreature(object){
 	var intelligence = row.insertCell(5);
 	var charisma = row.insertCell(6);
 	var playerClass = row.insertCell(7);
-	name.innerHTML = makeButton(object);
+	var button = makeButton(object);
+	name.appendChild(button);  
     strength.innerHTML = object.strength;
 	dexterity.innerHTML = object.dexterity;
 	constitution.innerHTML = object.constitution;
 	wisdom.innerHTML = object.wisdom;
 	intelligence.innerHTML = object.intelligence;
 	charisma.innerHTML = object.charisma;
+	if (object.playerClass) {
 	playerClass.innerHTML = object.playerClass;
-
+	}
 }
 
+
+
 function makeButton(object) {
-	console.log(object.name);
-	return "<input type='button' id='attackLog' onclick ='displayAttack()' value='" + object.name + "'/>"
+	var del = document.createElement('input');
+	del.type = 'button';
+	del.id = 'currentCreatures'
+	del.value = object.name;
+	del.onclick = function(){ console.log(object.attack(object.name));};
+	return del;
 }
 
 function currentAttack(name){
@@ -70,9 +73,10 @@ function currentAttack(name){
 	}
 }
 
-function displayAttack() {
-	console.log(document.getElementById('attackLog').getAttribute('value'));
+function displayAttack(clickedId) {
+	console.log(clickedId);
 }
+
 
 function populateArray(){
 	var newCreature;
@@ -82,12 +86,9 @@ function populateArray(){
 		} else {
 			newCreature = new Monster(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value);
 		}
-
 		dungeonArray.push(newCreature);
 		displayCreature(newCreature);
-		displayAttack(newCreature)
 }
 
 document.getElementById('addMonster').addEventListener('click', populateArray);
 
-//document.getElementById('attackLog').addEventListener('click', console.log("hi"));
