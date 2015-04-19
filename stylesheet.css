@@ -1,14 +1,22 @@
-h1 {
-	text-align: center;
+body {
+	font-family: 'Special Elite', cursive;
+	color: white;
+	margin-bottom: 5em;
+	font-size: .75em;
+	background-image: url("flame.jpg");
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-body {
-	margin-bottom: 10em;
+h1 {
+	text-align: center;
+	font-size: 3em;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	text-decoration: underline;
+	line-height: 2em;
 	text-align: center;
 }
 
@@ -20,26 +28,36 @@ p {
 #userInput {
 	width: 25%;
 	margin: 2em auto;
-	border: .25em solid;
+	border: .15em solid white;
+	background-color: black;
+	border-radius: 1em;
 }
 
 form {
-	margin: 1em 0 0 0;
 	padding: 1em;
-	border-top: .25em solid;
+	border-top: .15em solid white;
+	background-color: black;
 }
-
-
 
 table {
 	width: 80%;
-	margin-right: auto;
-	margin-left: auto;
+	margin: 0em auto;
 }
 
 table, th, td {
-	border: .1em solid black;
+	border: .15em solid black;
 	border-collapse: collapse;
+	padding: .5em;
+}
+
+#row1 {
+	background-color: black;
+	color: white;
+	border: .15em solid black;
+}
+
+th#row1 {
+	border: .15em solid white;
 }
 
 label { 
