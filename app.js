@@ -30,7 +30,12 @@ function displayCreature(object){
 	.intelligence, object.charisma];
 	for (var i = 0; i < requiredAttributes.length; i++) {
 		row.insertCell(i+1).innerHTML = requiredAttributes[i];
-	} if (object.playerClass){ row.insertCell(7).innerHTML = object.playerClass;}
+	} 
+	if (object.playerClass){ 
+		row.insertCell(7).innerHTML = object.playerClass;
+	} else {
+		row.insertCell(7).innerHTML = '';
+	}
 }
 
 function makeButton(object) {
