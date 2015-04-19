@@ -8,25 +8,16 @@
  	this.charisma = charisma;
  }
 
-
-Monster.prototype = {
-	attack : function(){
-		return this.strength * (Math.floor(Math.random() * 20) + 1);
-	}
-}
+Monster.prototype = {attack : function(){return this.strength * (Math.floor(Math.random() * 20) + 1);}}
 
 Player.prototype = new Monster;
 
-
-Player.prototype.attack = function(){
-	return this.dexterity * (Math.floor(Math.random() * 20) + 1);
-}
+Player.prototype.attack = function(){return this.dexterity * (Math.floor(Math.random() * 20) + 1);}
 
 function Player(name, strength, dexterity, constitution, wisdom, intelligence, charisma, playerClass){
 	this.playerClass = playerClass;
 	Monster.apply(this, arguments);
 }
-
 
 var latestAttack = document.getElementById("lastAttacker");
 var amazingAttack = document.getElementById("amazingAttack");
@@ -41,8 +32,6 @@ function displayCreature(object){
 		row.insertCell(i+1).innerHTML = requiredAttributes[i];
 	} if (object.playerClass){ row.insertCell(7).innerHTML = object.playerClass;}
 }
-
-
 
 function makeButton(object) {
 	var newButton = document.createElement('input');
