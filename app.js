@@ -54,18 +54,28 @@ function clearForm() {
 	document.getElementById('inputForm').reset();
 }
 
-function populateArray(){
-	var newCreature;
-	if(document.getElementById('playerClass').value){
-		newCreature = new Player(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value, document.getElementById('playerClass').value); 
+function addEntry(){
+	 if (checkForm()) {
+	 	newEntry();
+	 	clearForm();
+	 } else {
+	 	alert('please enter all required fields');
+	 }
+}
 
+function newEntry() {
+	var newCreature;
+	if(document.querySelector('input[name = "class"]:checked')){
+		newCreature = new Player(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value, document.querySelector('input[name = "class"]:checked').value); 
 	} else {
 		newCreature = new Monster(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value);
 	}
 	displayCreature(newCreature);
-	clearForm();
 }
 
-document.getElementById('addMonster').addEventListener('click', populateArray);
+function checkForm() {
+	return (document.getElementById('name').value && document.getElementById('strength').value && document.getElementById('dexterity').value && document.getElementById('constitution').value && document.getElementById('wisdom').value && document.getElementById('intelligence').value && document.getElementById('charisma')).value ? true : false;
+}
 
+document.getElementById('addMonster').addEventListener('click', addEntry);
 

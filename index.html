@@ -26,7 +26,11 @@
 		<label for="charisma">Charisma:</label>
 		<input type="text" id="charisma"> <br>
 		<label for="playerClass">Player Class (Optional)</label>
-		<input type="text" id="playerClass"> <br>
+		<input type="radio" name="class" value="witch" id ="playerClass" >Witch<br>
+        <input type="radio" name="class" value="goblin" id = "playerClass">Goblin<br>
+		<input type="radio" name="class" value="monk" id = "playerClass">Monk<br>
+		<input type="radio" name="class" value="vampire" = id="playerClass">Vampire<br>
+		<input type="radio" name="class" value="warrior" id= "playerClass">Warrior<br>
 		<button type="button" id="addMonster">Add Player/Monster to Records</button>
 	</form>
 	<table id ="statsTable">
@@ -41,7 +45,7 @@
 			<th>Player Class (Optional)
 			</tr>
 		</table>
-		<p id='lastAttacker'><click on any name to ATTACK/p>
+			<p id='lastAttacker'><click on any name to ATTACK/p>
 			<p id='amazingAttack'></p>
 			<script src="app.js"></script>
 		</body>
