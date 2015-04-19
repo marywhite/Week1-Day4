@@ -29,6 +29,8 @@ function Player(name, strength, dexterity, constitution, wisdom, intelligence, c
 }
 
 var dungeonArray = [];
+var latestAttack = document.getElementById("lastAttacker");
+var amazingAttack = document.getElementById("amazingAttack");
 
 function displayCreature(object){
 	var table = document.getElementById('statsTable');
@@ -61,20 +63,12 @@ function makeButton(object) {
 	del.type = 'button';
 	del.id = 'currentCreatures'
 	del.value = object.name;
-	del.onclick = function(){ console.log(object.attack(object.name));};
+	del.onclick = function(){ 
+		lastAttacker.innerHTML = object.name + ' just ATTACKED'; 
+		var modifiedTrait = object.playerClass ? 'Dexterity is now ' : 'Strength is now ';
+		amazingAttack.innerHTML = modifiedTrait + object.attack(object.name);
+	};
 	return del;
-}
-
-function currentAttack(name){
-	for(var i = 0; i < dungeonArray.length; i++){
-		if(dungeonArray[i].name == name){
-			return dungeonArray[i].attack();
-		}
-	}
-}
-
-function displayAttack(clickedId) {
-	console.log(clickedId);
 }
 
 
@@ -91,4 +85,5 @@ function populateArray(){
 }
 
 document.getElementById('addMonster').addEventListener('click', populateArray);
+
 
