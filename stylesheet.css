@@ -1,4 +1,8 @@
 table {
-	border: 1px solid black;
+	width: 100%;
+}
+
+table, th, td {
+	border: .1em solid black;
 	border-collapse: collapse;
 }
