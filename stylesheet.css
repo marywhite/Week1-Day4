@@ -1,15 +1,50 @@
-
-label {
-float: left;
-width: 10em;
-margin-right: 1em;
+h1 {
+	text-align: center;
 }
 
+body {
+	margin-bottom: 10em;
+}
+
+h2 {
+	font-size: 1.5em;
+	text-decoration: underline;
+	text-align: center;
+}
+
+p {
+	text-align: center;
+	font-size: 2em;
+}
+
+#userInput {
+	width: 25%;
+	margin: 2em auto;
+	border: .25em solid;
+}
+
+form {
+	margin: 1em 0 0 0;
+	padding: 1em;
+	border-top: .25em solid;
+}
+
+
+
 table {
-	width: 100%;
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 table, th, td {
 	border: .1em solid black;
 	border-collapse: collapse;
 }
+
+label { 
+	display: inline-block; 
+	width: 8em; 
+	text-align: left;
+	margin: .25em 0; 
+}​

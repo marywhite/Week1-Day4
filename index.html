@@ -10,6 +10,9 @@
 </head>
 
 <body>
+	<h1>Dungenons and Dragons Statistics Log</h1>
+	<div id="userInput">
+	<h2>Enter Player/Monster below</h1>	
 	<form id="inputForm">
 		<label for="name">Name:</label>
 		<input type ="text" id="name"> <br>
@@ -25,7 +28,7 @@
 		<input type="text" id="intelligence"> <br>
 		<label for="charisma">Charisma:</label>
 		<input type="text" id="charisma"> <br>
-		<label for="playerClass">Player Class (Optional)</label>
+		<label for="playerClass">Player Class (Optional)</label><br>
 		<input type="radio" name="class" value="witch" id ="playerClass" >Witch<br>
         <input type="radio" name="class" value="goblin" id = "playerClass">Goblin<br>
 		<input type="radio" name="class" value="monk" id = "playerClass">Monk<br>
@@ -33,6 +36,9 @@
 		<input type="radio" name="class" value="warrior" id= "playerClass">Warrior<br>
 		<button type="button" id="addMonster">Add Player/Monster to Records</button>
 	</form>
+</div>
+	<p id='lastAttacker'>click on any name to ATTACK</p>
+	<p id='amazingAttack'></p>
 	<table id ="statsTable">
 		<tr>
 			<th>Name</th>
@@ -45,8 +51,6 @@
 			<th>Player Class (Optional)
 			</tr>
 		</table>
-			<p id='lastAttacker'><click on any name to ATTACK/p>
-			<p id='amazingAttack'></p>
 			<script src="app.js"></script>
 		</body>
 		</html>

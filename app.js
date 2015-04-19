@@ -66,7 +66,7 @@ function addEntry(){
 function newEntry() {
 	var newCreature;
 	if(document.querySelector('input[name = "class"]:checked')){
-		newCreature = new Player(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value, document.querySelector('input[name = "class"]:checked').value); 
+		newCreature = new Player((document.getElementById('name').value).toUpperCase(), document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value, (document.querySelector('input[name = "class"]:checked').value).toUpperCase()); 
 	} else {
 		newCreature = new Monster(document.getElementById('name').value, document.getElementById('strength').value, document.getElementById('dexterity').value, document.getElementById('constitution').value, document.getElementById('wisdom').value, document.getElementById('intelligence').value, document.getElementById('charisma').value);
 	}
@@ -78,4 +78,3 @@ function checkForm() {
 }
 
 document.getElementById('addMonster').addEventListener('click', addEntry);
-
