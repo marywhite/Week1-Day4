@@ -46,8 +46,7 @@ function makeButton(object) {
 	newButton.onclick = function(){ 
 		lastAttacker.innerHTML = object.name + ' just ATTACKED'; 
 		amazingAttack.innerHTML = (object.playerClass ? 'Dexterity is now ' : 'Strength is now ') + object.attack(object.name);
-	};
-	return newButton;
+	}; return newButton;
 }
 
 function clearForm() {
@@ -55,12 +54,7 @@ function clearForm() {
 }
 
 function addEntry(){
-	 if (checkForm()) {
-	 	newEntry();
-	 	clearForm();
-	 } else {
-	 	alert('please enter all required fields');
-	 }
+	 if (checkForm()) {newEntry(); clearForm();} else { alert('please enter all required fields');}
 }
 
 function newEntry() {
